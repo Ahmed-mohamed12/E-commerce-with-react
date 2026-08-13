@@ -4,11 +4,13 @@ import { CloseButton } from "react-bootstrap";
 import { MobMenue } from "../../context/MopMenueContext";
 import { ScreenSizeContext } from "../../context/ScreenSizeContext";
 import React, { useEffect, useState, useContext, useCallback } from "react";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button, Container, Dropdown, Form, Modal } from "react-bootstrap";
 
 import Cookie from "cookie-universal";
+
 export default function DropDownLogOut(){
+        const navigate = useNavigate();
     
         const [categories, setCategories] = useState([]);
         const [showmopmen, setShowmopmen] = useState(true);
@@ -37,7 +39,7 @@ export default function DropDownLogOut(){
        await setName(response?.data.firstName);
        console.log(response?.data.firstName);
       } catch (error) {
-        Navigate("/login", { replace: true });
+        navigate("/login", { replace: true });
         console.log(error);
       }
     }
@@ -68,7 +70,7 @@ clearAllCookies();
     const goDashboard = useCallback(() => {
           window.location.pathname = "/dashboard";
         }, []);
-        const navigate=useNavigate()
+        
     return<>
     
     <div lassName="d-flex justify-content-end col-6 g-success">
