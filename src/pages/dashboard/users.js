@@ -30,8 +30,8 @@ export default function Users() {
   const token = cookie.get("e-commerce");
 
   // ================GET USERS======================
-  let nuserFromLocal=localStorage.getItem("users");
-let nuser =JSON.parse(nuserFromLocal);
+  let nuserFromLocal = localStorage.getItem("users");
+  let nuser = nuserFromLocal ? JSON.parse(nuserFromLocal) : [];
 
   console.log(nuser)
   useEffect(() => {
