@@ -1,12 +1,17 @@
-import { createContext, useState,  } from "react"
+import { createContext, useState } from "react"
 
 export const CartNums = createContext(0)
-export default function CartNumContext({children}) {
-    let len=JSON.parse(localStorage.getItem("product")).length
-    const[CartNum,setCartNum] =useState(len||0)
-    return <CartNums.Provider value={{CartNum,setCartNum}}>
-        
-        {children}
-        </CartNums.Provider>
-    
+
+export default function CartNumContext({ children }) {
+  // ✅ الحل الآمن
+  let data = localStorage.getItem("product");
+  let len = data ? JSON.parse(data).length : 0;
+  
+  const [CartNum, setCartNum] = useState(len);
+  
+  return (
+    <CartNums.Provider value={{ CartNum, setCartNum }}>
+      {children}
+    </CartNums.Provider>
+  );
 }
