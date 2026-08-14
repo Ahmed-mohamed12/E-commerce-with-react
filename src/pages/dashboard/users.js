@@ -33,7 +33,7 @@ export default function Users() {
   let nuserFromLocal = localStorage.getItem("users");
   let nuser = nuserFromLocal ? JSON.parse(nuserFromLocal) : [];
 
-  console.log(nuser)
+ 
   useEffect(() => {
     async function getUsers() {
       try {
@@ -69,9 +69,7 @@ export default function Users() {
         }
         // ====== حدث الـ State ======
         setUsers(finalUsers);
-        console.log(finalUsers)
         // setUsers(response.data.users);
-
         setTotal(30);
       } catch (error) {
         console.error("Error fetching users:", error);

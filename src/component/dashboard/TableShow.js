@@ -91,7 +91,7 @@ export default function TableShow(props) {
        { item1.rating?<td>{item1.rating}</td>: null}
        { item1.email?<td>{item1.email}</td>: null}
        {/* { item1.role?<td>{item1.role}</td>: null} */}
-       { item1.role?<td>{item1.role==="1995"?"admin":item1.role==="1996"?"writer":"user"}</td>: null}
+       { item1.role?<td>{item1.role==="1995"||item1.role==="admin"?"admin":item1.role==="1996"||item1.role==="writer"?"writer":"user"}</td>: null}
         
        
         <td>15-3-2020</td>

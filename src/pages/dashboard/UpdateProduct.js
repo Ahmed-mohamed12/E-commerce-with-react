@@ -80,7 +80,7 @@ useEffect(()=>{
         }).then((data)=>{
             
            setForm({...form,
-            category:data.data.category,
+                    category:data.data.category,
                     title: data.data.title,
                     description:data.data.description,
                     price:data.data.price,
